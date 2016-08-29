@@ -46,7 +46,7 @@ console.log("Program Ended");
 
 //Piping streams
 
-var fs = require("fs");
+/*var fs = require("fs");
 
 var readerStream = fs.createReadStream('input.txt');
 
@@ -54,6 +54,26 @@ var writerStream = fs.createWriteStream('output.txt');
 
 readerStream.pipe(writerStream);
 
-console.log("Program Ended");
+console.log("Program Ended");*/
 
+// Chaining streams - compress
 
+/*var fs = require('fs');
+var zlib = require('zlib');
+
+fs.createReadStream('input.txt')
+    .pipe(zlib.createGzip())
+    .pipe(fs.createWriteStream('input.txt.gz'));
+
+console.log('file compressed');*/
+
+// Chaining streams - decompress
+
+var fs = require('fs');
+var zlib = require('zlib');
+
+fs.createReadStream('input.txt')
+    .pipe(zlib.createGunzip())
+    .pipe(fs.createWriteStream('input.txt'));
+
+console.log('file decompressed');
