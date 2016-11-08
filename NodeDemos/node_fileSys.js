@@ -137,7 +137,7 @@ fs.rmdir("tmp/test",function(err){
             console.log(file);
         });
     });
-});
+}
 
 
 
