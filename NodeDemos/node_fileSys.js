@@ -54,7 +54,7 @@ fs.writeFile('input.txt','new content from script', function(err){
 // Reading a file
 
 /*var fs = require('fs');
-var buf = new Buffer(1024);
+var buf = new Buffer(2048);
 
 console.log('Going to open an existing file');
 
@@ -93,20 +93,50 @@ fs.open('input.txt', 'r+', function(err, fd){
               }
               console.log("File deleted successfully!");
           });
-
         });
       });
     });
 });*/
 
 // Create Directory
-var fs = require('fs');
+/*var fs = require('fs');
 console.log("Going to create directory /tmp/test");
 fs.mkdir('tmp/test',function(err){
     if(err){
         return console.log(err);
     }
     console.log("Directory created successfully!");
+});*/
+
+/*var fs = require('fs');
+console.log("Going to read directory /tmp");
+
+fs.readdir("tmp/",function(err,files){
+    if(err){
+        return console.error(err);
+    }
+    files.forEach(function(file){
+        console.log(file);
+    });
+});*/
+
+var fs = require('fs');
+
+console.log("Going to delete directory /tmp/test");
+fs.rmdir("tmp/test",function(err){
+    if(err){
+        return console.log(err);
+    }
+    console.log("Going to read a directory /tmp");
+
+    fs.readdir("tmp/",function(err, files){
+        if(err){
+            return console.error(err);
+        }
+        files.forEach(function(file){
+            console.log(file);
+        });
+    });
 });
 
 
